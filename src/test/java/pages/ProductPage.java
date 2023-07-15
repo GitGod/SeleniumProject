@@ -15,6 +15,9 @@ public class ProductPage {
     @FindBy(name = "quantity")
     private WebElement numberOfProducts;
 
+    @FindBy(xpath = "//button[text()='Dodaj do koszyka']")
+    private WebElement addToCartButton;
+
 
     public ProductPage(WebDriver driver){
         PageFactory.initElements(driver,this);
