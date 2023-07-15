@@ -18,6 +18,7 @@ public class BaseTest {
     public void setup() throws IOException {
         driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
+        driver.get("http://www.selenium-shop.pl/");
     }
 
     public void takeScreenShot(){

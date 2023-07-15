@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 public class MainPage {
     @FindBy(xpath = "//a[text()='Moje konto']")
     private WebElement myAccountButton;
+    @FindBy(xpath = "//a[text()='Sklep']")
+    private WebElement shopButton;
 
     private WebDriver driver;
     public MainPage(WebDriver driver){
@@ -19,5 +21,9 @@ public class MainPage {
     public MyAccountPage goToMyAccount() {
         myAccountButton.click();
         return new MyAccountPage(driver);
+    }
+    public ShopPage goToShop() {
+        shopButton.click();
+        return new ShopPage(driver);
     }
 }
