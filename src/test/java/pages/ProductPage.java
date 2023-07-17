@@ -17,10 +17,15 @@ public class ProductPage {
 
     @FindBy(xpath = "//button[text()='Dodaj do koszyka']")
     private WebElement addToCartButton;
+    @FindBy(className = "woocommerce-message")
+    private WebElement addToCartInfo;
 
-
+    private WebDriver driver;
     public ProductPage(WebDriver driver){
+
         PageFactory.initElements(driver,this);
+        this.driver=driver;
+
     }
 
     public String getPriceOfProduct(){
@@ -31,5 +36,15 @@ public class ProductPage {
     }
     public String getNumberOfProducts(){
         return numberOfProducts.getAttribute("value");
+    }
+
+    public ProductPage addToCart(){
+        addToCartButton.click();
+        return new ProductPage(driver);
+    }
+
+    public String getAddToCartInfo()
+    {
+        return addToCartInfo.getText();
     }
 }
