@@ -19,6 +19,8 @@ public class ProductPage {
     private WebElement addToCartButton;
     @FindBy(className = "woocommerce-message")
     private WebElement addToCartInfo;
+    @FindBy(xpath = "//a[text()='Zobacz koszyk']")
+    private WebElement seeCartButton;
 
     private WebDriver driver;
     public ProductPage(WebDriver driver){
@@ -46,5 +48,10 @@ public class ProductPage {
     public String getAddToCartInfo()
     {
         return addToCartInfo.getText();
+    }
+
+    public CartPage goToCart(){
+        seeCartButton.click();
+        return new CartPage(driver);
     }
 }
